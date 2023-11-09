@@ -1,0 +1,64 @@
+/* SideDrawer.css */
+.navigation-drawer {
+  position: fixed;
+  top: 0;
+  right: 100%; /* Initially off-screen to the left */
+  width: 80%;
+  height: 100%;
+  color: #fff;
+  transition: right 0.3s;
+  z-index: 20;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.navigation-drawer.open {
+  right: 20%; /* Moves the drawer onto the screen */
+}
+.navigation-drawer-bg{
+  z-index: 1;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(216, 216, 216, 0.444);
+}
+.drawer-btn{
+  border: none;
+  background-color: rgb(221, 221, 221);
+  padding: 10px;
+  border-radius: 5px;
+  position: absolute;
+}
+
+.title{
+  font-size: 20px;
+}
+.drawer-content{
+  padding: 20px;
+}
+.section{
+  border-bottom: solid 1px;
+  padding-bottom: 10px;
+}
+
+.module{
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 50px;
+}
+
+
+/* Helper classes */
+.d-flex{
+  display: flex;
+}
+.justify-between{
+  justify-content: space-between;
+}
+.mr-2{
+  margin-right: 6px;
+}
+.d-none{
+  display: none;
+}
