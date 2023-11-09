@@ -7,18 +7,28 @@ import { useState } from 'react';
  * Primary UI component for user interaction
  */
 export const NavigationRail = ({ backgroundColor, tabs }) => {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [showLabels, setShowLabels] = useState(false);
+
+  const toggleDrawer = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+    if (!showLabels)
+      setTimeout(() => setShowLabels(!showLabels), 100)
+    else
+      setShowLabels(!showLabels)
+  };
+
   return (
     <div>
-      <div className='navigation-rail' style={backgroundColor && {backgroundColor}}>
-        <div><Icons.FaBars /></div>
+      <div className={[isDrawerOpen ? 'navigation-rail open' : 'navigation-rail']} style={backgroundColor && { backgroundColor }}>
+        <Icons.FaBars className='menu-icon' onClick={toggleDrawer} />
         <div>
           {tabs.map((tab) => {
-            return <div>
-              {tab.icon}
+            return <div className='tab-contents d-flex'>
+              <Icons.FaDotCircle />
+              <div style={{ display: showLabels ? 'block' : 'none', fontSize:'16px' }}>{tab.label}</div>
             </div>
           })}</div>
-
-
       </div>
     </div>
   );
