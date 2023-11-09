@@ -18,7 +18,7 @@
 }
 .tab-contents{
   display: flex;
-  font-size: 20px;
+  font-size: 20px ;
   align-items: center;
   margin: 15px;
 }

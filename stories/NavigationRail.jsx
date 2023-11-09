@@ -6,7 +6,8 @@ import { useState } from 'react';
 /**
  * Primary UI component for user interaction
  */
-export const NavigationRail = ({ backgroundColor, tabs }) => {
+export const NavigationRail = ({ backgroundColor, labelColor, tabs }) => {
+  const [tabsList, setTabsList] = useState(tabs);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [showLabels, setShowLabels] = useState(false);
 
@@ -18,15 +19,19 @@ export const NavigationRail = ({ backgroundColor, tabs }) => {
       setShowLabels(!showLabels)
   };
 
+  const handleTabSelect = (index) => {
+    
+  }
+
   return (
     <div>
-      <div className={[isDrawerOpen ? 'navigation-rail open' : 'navigation-rail']} style={backgroundColor && { backgroundColor }}>
+      <div className={[isDrawerOpen ? 'navigation-rail open' : 'navigation-rail']} style={{ backgroundColor: backgroundColor, color: labelColor }}>
         <Icons.FaBars className='menu-icon' onClick={toggleDrawer} />
         <div>
-          {tabs.map((tab) => {
-            return <div className='tab-contents d-flex'>
+          {tabsList.map((tab, index) => {
+            return <div className='tab-contents d-flex' onClick={() => handleTabSelect(index)}>
               <Icons.FaDotCircle />
-              <div style={{ display: showLabels ? 'block' : 'none', fontSize:'16px' }}>{tab.label}</div>
+              <div style={{ display: showLabels ? 'block' : 'none', fontSize: '16px' }}>{tab.label}</div>
             </div>
           })}</div>
       </div>
@@ -43,6 +48,7 @@ NavigationRail.defaultProps = {
   backgroundColor: 'grey',
   tabs: [
     {
+      isActive: true,
       icon: "Home",
       label: "Module 1",
     },
