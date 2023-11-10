@@ -1,0 +1,30 @@
+.segmented-btns-tab{
+  display: flex;
+}
+.segmented-btn{
+  background: transparent;
+  border-color: transparent !important;
+  padding: 10px;
+  min-width: 100px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.tab-first{
+  border: solid 1px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-right: none;
+}
+.tab-mid{
+  border: solid 1px;
+  border-right: none;
+}
+.tab-last{
+  border-right: solid 1px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+.mr-3{
+  margin-right: 6px;
+}
